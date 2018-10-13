@@ -19,16 +19,6 @@ app.use(
   })
 );
 
-// Index Route
-app.get("/", (req, res) => {
-  res.render('index');
-});
-
-// POST db
-app.post("/db", (req, res) => {
-  console.log(req.body);
-});
-
 // Server Setup
 const PORT = process.env.PORT || 3000;
 
@@ -48,3 +38,22 @@ MongoClient.connect(
     });
   }
 );
+
+// Routes
+
+// Index Route
+app.get("/", (req, res) => {
+  // async () => {
+  //   const collections = await db.getCollectionNames()
+  //   // res.render('index', { collections : collections})
+  //   console.log(collections);
+  // }
+  db.listCollections().toArray(function(err, collections) {
+    res.render('index', { collections : collections})
+});
+});
+
+// POST db
+app.post("/db", (req, res) => {
+  console.log(req.body);
+});
