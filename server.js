@@ -1,59 +1,35 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const MongoClient = require("mongodb").MongoClient;
-const hbs = require('express-handlebars');
+const mongoose = require("mongoose")
+const hbs = require("express-handlebars");
 const app = express();
 
-let db;
+const playbook = require('./routes/api/playbook');
 
 // View Engine Setup
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
-app.set('view engine', 'hbs');
-
-
-// bodyParser Middleware
-app.use(express.static(__dirname + "public"));
-app.use(
-  bodyParser.urlencoded({
-    extended: true
+app.engine(
+  "hbs",
+  hbs({
+    extname: "hbs",
+    defaultLayout: "layout",
+    layoutsDir: __dirname + "/views/layouts/"
   })
 );
+app.set("view engine", "hbs");
 
-// Server Setup
-const PORT = process.env.PORT || 3000;
+// bodyParser Middleware
+app.use(bodyParser.json())
 
-// Start server only if db is avaible
-MongoClient.connect(
-  "mongodb://test:test123@ds125453.mlab.com:25453/playbook_viewer_db",
-  {
-    useNewUrlParser: true
-  },
-  (err, client) => {
-    if (err) return console.log(err);
+// DB Config
+const db = require('./config/keys').mongoURI;
 
-    db = client.db("playbook_viewer_db");
+// Connect to Mongo
+mongoose.connect(db, { useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
 
-    app.listen(PORT, () => {
-      console.info(`Server has started on ${PORT}`);
-    });
-  }
-);
+// Use Routes
+app.use('/api/playbook', playbook)
 
-// Routes
-
-// Index Route
-app.get("/", (req, res) => {
-  // async () => {
-  //   const collections = await db.getCollectionNames()
-  //   // res.render('index', { collections : collections})
-  //   console.log(collections);
-  // }
-  db.listCollections().toArray(function(err, collections) {
-    res.render('index', { collections : collections})
-});
-});
-
-// POST db
-app.post("/db", (req, res) => {
-  console.log(req.body);
-});
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
