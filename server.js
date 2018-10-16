@@ -6,6 +6,12 @@ const app = express();
 
 const playbook = require('./routes/api/playbook');
 
+// At the top of your server.js
+process.env.PWD = process.cwd()
+
+// Then
+app.use(express.static(process.env.PWD + '/public'));
+
 // View Engine Setup
 app.engine(
   "hbs",
@@ -29,6 +35,14 @@ mongoose.connect(db, { useNewUrlParser: true })
   .catch(err => console.log(err));
 
 // Use Routes
+app.get('/', function (req, res) {
+  res.render('index')
+})
+// Test Route
+app.get('/test/:playbookname', function (req, res) {
+  res.send(req.params.playbookname)
+})
+
 app.use('/api/playbook', playbook)
 
 const PORT = process.env.PORT || 3000

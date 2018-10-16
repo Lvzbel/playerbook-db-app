@@ -9,9 +9,9 @@ const Playbook = require('../../models/playbook');
 // @desc    Get All Items
 // @access  Public
 router.get('/', (req, res) => {
-  // playbookName = 'oilrig'
-  Playbook.find({ "playbook": "tick" })
-    .then(playbook => res.json(playbook))
+  // Playbook.find({ "playbook": "tick" })
+  //   .then(playbook => res.json(playbook))
+  res.send(console.log(req.params.playbook));
 });
 
 // router.get('/test', (req, res) => {
