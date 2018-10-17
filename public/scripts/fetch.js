@@ -5,5 +5,12 @@ const sofacy = document.getElementById('sofacy');
 const playbooks = document.getElementsByClassName('playbooks');
 
 document.addEventListener('click', (event) => {
-  console.log(event.target.attributes.id.nodeValue)
+  const clickedPlaybook = event.target.attributes.id.nodeValue
+  fetch(`${window.location}api/playbook/campaign/${clickedPlaybook}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+  });
 })
