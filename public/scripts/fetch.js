@@ -6,11 +6,11 @@ const playbooks = document.getElementsByClassName('playbooks');
 
 document.addEventListener('click', (event) => {
   const clickedPlaybook = event.target.attributes.id.nodeValue
-  fetch(`${window.location}api/playbook/campaign/${clickedPlaybook}`)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(myJson) {
-    console.log(JSON.stringify(myJson));
-  });
+  fetchPlaybook(clickedPlaybook);
 })
+
+const fetchPlaybook = async (playbook) => {
+  let response = await fetch(`${window.location}api/playbook/campaign/${playbook}`);
+
+  let data = await response.json();
+}
