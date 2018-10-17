@@ -1,17 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-let playbookName = 'oilrig'
+let playbookName = "oilrig";
 
 // Importing Playbook Model
-const Playbook = require('../../models/playbook');
+const Playbook = require("../../models/playbook");
 
 // @route   GET api/playbook
 // @desc    Get All Items
 // @access  Public
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   // Playbook.find({ "playbook": "tick" })
   //   .then(playbook => res.json(playbook))
   res.send(console.log(req.params.playbook));
+});
+
+// Test Route
+router.get("/campaign/:playbookname", function(req, res) {
+  Playbook.find({ playbook: req.params.playbookname }).then(playbook => res.json(playbook));
 });
 
 // router.get('/test', (req, res) => {
@@ -22,8 +27,10 @@ router.get('/', (req, res) => {
 // @route   POST api/playbook
 // @desc    Create Post
 // @access  Public
-router.post('/', (req, res) => {
-  const newPlaybook = new Playbook
-})
+router.post("/", (req, res) => {
+  const newPlaybook = new Playbook();
+});
 
 module.exports = router;
+
+// /api/playbook/campaign/
