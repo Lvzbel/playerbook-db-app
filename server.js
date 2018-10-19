@@ -1,9 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const exphbs = require("express-handlebars");
-const Handlebars = require('handlebars');
 const app = express();
+
 
 const playbook = require("./routes/api/playbook");
 
@@ -12,15 +11,6 @@ process.env.PWD = process.cwd();
 
 // Then
 app.use(express.static(process.env.PWD + "/public"));
-
-// View Engine Setup
-const hbs = exphbs.create({
-  extname: "hbs",
-  defaultLayout: "layout",
-  layoutsDir: __dirname + "/views/layouts/"
-});
-app.engine("hbs", hbs.engine);
-app.set("view engine", "hbs");
 
 // bodyParser Middleware
 app.use(bodyParser.json());
@@ -39,7 +29,7 @@ mongoose
 
 // Use Routes
 app.get("/", function(req, res) {
-  res.render("index");
+  res.sendFile("index.html");
 });
 
 app.use("/api/playbook", playbook);
@@ -47,7 +37,3 @@ app.use("/api/playbook", playbook);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
-// Handlebars test
-Handlebars.registerHelper('testFunc', (name) => {
-  return `Hello ${name}`
-})

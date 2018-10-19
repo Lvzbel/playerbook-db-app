@@ -1,12 +1,8 @@
-const oilrig = document.getElementById('oilrig');
-const sofacy = document.getElementById('sofacy');
-const description = document.getElementsByClassName('description-text');
-
 
 const playbooks = document.getElementsByClassName('playbooks');
 
 document.addEventListener('click', (event) => {
-  const clickedPlaybook = event.target.attributes.id.nodeValue
+  const clickedPlaybook = event.originalTarget.id
   fetchPlaybook(clickedPlaybook);
 })
 
@@ -17,5 +13,5 @@ const fetchPlaybook = async (playbook) => {
 
   let requestedPlaybook = data[0].objects
 
-  description.innerHTML = staticInfo(requestedPlaybook)
+  staticInfo(requestedPlaybook)
 }
