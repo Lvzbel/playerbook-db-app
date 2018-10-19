@@ -13,5 +13,7 @@ const fetchPlaybook = async (playbook) => {
 
   let requestedPlaybook = data[0].objects
 
-  staticInfo(requestedPlaybook)
+  // Render all playbook static info
+  playbookDescription(requestedPlaybook)
+  playbookIntrusion(playbook)
 }
