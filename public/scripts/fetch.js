@@ -16,4 +16,8 @@ const fetchPlaybook = async (playbook) => {
   // Render all playbook static info
   playbookDescription(requestedPlaybook)
   playbookIntrusion(playbook)
+  playbookCampaigns(requestedPlaybook)
+  playbookIndicator(requestedPlaybook)
+  playbookAttacks(requestedPlaybook)
+  campaignDuration(requestedPlaybook)
 }
