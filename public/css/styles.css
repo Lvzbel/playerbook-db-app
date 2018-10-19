@@ -1,3 +1,44 @@
-body {
-  background: #555;
+:root {
+  --main-bg-color: #464646;
+  --secondary-bg-color: #393939;
+  --main-color: #EF9124;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  background-color: var(--main-bg-color);
+  color: #777;
+}
+
+header {
+  background-color: var(--secondary-bg-color);
+  height: 60px;
+  width: 100%;
+}
+
+main {
+  display: flex;
+}
+
+.playbooks {
+  width: 30%;
+  height: 500px;
+  background-color: var(--secondary-bg-color);
+}
+
+.campain-score-board {
+  width: 100%;
+  display: flex;
+}
+
+/* Main Color #EF9124 */
+/* Secondary Background #393939 */
