@@ -6,19 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/css/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
   <title>Playbook DB</title>
 </head>
 
 <body>
 
   <header>
+    <img src="/images/u42logo.png" id="logo">
     <h1>Playbook Viewer</h1>
   </header>
 
   <main>
 
-    <div class="playbooks">
+    <div class="playbooks-sidebar">
       Playbooks
       <ul>
         <li id="oilrig">OILRIG</li>
@@ -33,67 +34,69 @@
       </ul>
     </div>
 
-    <div class="campaign-info">
-      <div class="campaign-description">
-        <p id="description-text"></p>
+    <div class="main-info">
+      <div class="campaign-info">
+        <div class="campaign-description">
+          <p id="description-text"></p>
+        </div>
+        <div class="campaign-timeline">
+          <ul id="timeline">
+
+          </ul>
+        </div>
       </div>
-      <div class="campaign-timeline">
-        <ul id="timeline">
 
-        </ul>
+      <div class="campaign-score-board">
+        <div class="score-board">intrusion Set: <span id="intrusion"></span></div>
+        <div class="score-board">Campaign: <span id="campaign"></span></div>
+        <div class="score-board">Indicator: <span id="indicators"></span></div>
+        <div class="score-board">Attack Patterns: <span id="attacks"></span></div>
       </div>
-    </div>
 
-    <div class="campaign-score-board">
-      <div class="score-board">intrusion Set: <span id="intrusion"></span></div>
-      <div class="score-board">Campaign: <span id="campaign"></span></div>
-      <div class="score-board">Indicator: <span id="indicators"></span></div>
-      <div class="score-board">Attack Patterns: <span id="attacks"></span></div>
-    </div>
+      <div class="campaign-dynamic-info">
+        <div class="title-bar">
+          <div class="title-bar-sections">
+            <span>RECON</span>
+            <ul id="recon">
 
-    <div class="campaign-main-info">
-      <div class="title-bar">
-        <div class="title-bar-sections">
-          <span>RECON</span>
-          <ul id="recon">
+            </ul>
+          </div>
+          <div class="title-bar-sections">
+            <span>WEAPONIZATION</span>
+            <ul id="weaponization">
 
-          </ul>
-        </div>
-        <div class="title-bar-sections">
-          <span>WEAPONIZATION</span>
-          <ul id="weaponization">
+            </ul>
+          </div>
+          <div class="title-bar-sections">
+            <span>DELIVERY</span>
+            <ul id="delivery">
 
-          </ul>
-        </div>
-        <div class="title-bar-sections">
-          <span>DELIVERY</span>
-          <ul id="delivery">
+            </ul>
+          </div>
+          <div class="title-bar-sections">
+            <span>EXPLOIT</span>
+            <ul id="exploit">
 
-          </ul>
-        </div>
-        <div class="title-bar-sections">
-          <span>EXPLOIT</span>
-          <ul id="exploit">
+            </ul>
+          </div>
+          <div class="title-bar-sections">
+            <span>INSTALL</span>
+            <ul id="install">
 
-          </ul>
-        </div>
-        <div class="title-bar-sections">
-          <span>INSTALL</span>
-          <ul id="install">
+            </ul>
+          </div>
+          <div class="title-bar-sections">
+            <span>COMMAND</span>
+            <ul id="command">
 
-          </ul>
-        </div>
-        <div class="title-bar-sections">
-          <span>COMMAND</span>
-          <ul id="command">
+            </ul>
+          </div>
+          <div class="title-bar-sections">
+            <span>OBJECTIVE</span>
+            <ul id="objective">
 
-          </ul>
-        </div>
-        <div class="title-bar-sections">
-          <span>OBJECTIVE</span>
-          <ul id="objective">
-
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
