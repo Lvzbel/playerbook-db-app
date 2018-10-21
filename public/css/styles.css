@@ -140,3 +140,20 @@ main {
   background-color: var(--main-color);
   color: #fff;
 }
+
+/* Timeline Styles */
+#timeline {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-y: auto;
+}
+
+#timeline li {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  height: 35px;
+  border: #EF9124 solid 1px;
+}
