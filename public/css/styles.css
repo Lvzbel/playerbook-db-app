@@ -105,3 +105,15 @@ main {
   background-color: var(--secondary-bg-color);
 }
 
+/* Description Paragraph Styles */
+#description-text {
+  border: 2px solid var(--main-color);
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  line-height: 2.0;
+  text-indent: 50px;
+  overflow-y: auto;
+  page-break-inside: auto;
+}
