@@ -54,6 +54,9 @@ const campaignDuration = data => {
     "December"
   ];
 
+  // Clear old dates
+  timeLineElement.innerHTML = ''
+
   campaigns.forEach(element => {
     const li = document.createElement("li");
 
