@@ -8,7 +8,10 @@ const timeLineElement = document.querySelector("#timeline");
 const playbookDescription = data => {
   const report = data.find(o => o.type === "report");
 
-  descriptionElement.innerHTML = report.description;
+  let description = report.description
+  let descWithBreaks = description.replace(/\r\n/g, "</br>")
+
+  descriptionElement.innerHTML = descWithBreaks;
 };
 
 const playbookIntrusion = data => {

@@ -112,10 +112,8 @@ main {
   width: 100%;
   padding: 10px;
   text-align: left;
-  line-height: 2.0;
-  text-indent: 50px;
   overflow-y: auto;
-  page-break-inside: auto;
+  font-size: 15px;
 }
 
 /* Playbooks List Styles*/
