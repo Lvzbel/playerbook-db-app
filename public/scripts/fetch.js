@@ -2,7 +2,7 @@
 const playbooks = document.getElementsByClassName('playbooks');
 
 let currentPlaybook;
-
+let currentReports;
 document.addEventListener('click', (event) => {
   const clickedPlaybook = event.originalTarget.id
   fetchPlaybook(clickedPlaybook);

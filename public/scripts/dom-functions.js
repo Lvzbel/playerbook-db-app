@@ -5,6 +5,11 @@ const indicatorsElement = document.querySelector("#indicators");
 const attacksElement = document.querySelector("#attacks");
 const timeLineElement = document.querySelector("#timeline");
 
+const findById = (data, id) => {
+  const report = data.find(o => o.id === id);
+  return report
+}
+
 const playbookDescription = data => {
   const report = data.find(o => o.type === "report");
 
@@ -81,7 +86,12 @@ function addReportLinks(playbook) {
       const li = document.createElement("li");
       li.setAttribute("report_id", `${r.id}`)
       li.innerHTML = date_text;
-      li.addEventListener("click", () => console.log(`hello`));
+      li.addEventListener('click', (event) => {
+        const reportId = li.getAttribute("report_id");
+        const report = findById(currentPlaybook, reportId)
+        buildPhaseContainer(report, currentPlaybook)
+        
+      })
       timeLineElement.appendChild(li);
   });
 }
@@ -115,20 +125,21 @@ function buildPhaseContainer(report, playbook) {
       recon.length, weap.length, delivery.length, exploit.length, install.length, command.length, objective.length
   );
   const columns = [recon, weap, delivery, exploit, install, command, objective];
-  let phase_container = $('.phasescontainer');
-  phase_container.empty();
-  let ap_markup = '';
-  for (let i = 0; i < table_length; i++) {
-      columns.forEach(c => {
-          if (c.length > i) {
-              ap_markup += `<div class="phases ap_button" ap_id='${c[i].id}' camp_id='${campaign.id}' onclick="">${c[i].name}</div>`;
-              writeAPModal(c[i], report, playbook);
-          } else {
-              ap_markup += '<div class="phasesblank"></div>';
-          }
-      });
-  }
-  phase_container.append(ap_markup);
+  console.log(columns);
+  // let phase_container = $('.phasescontainer');
+  // phase_container.empty();
+  // let ap_markup = '';
+  // for (let i = 0; i < table_length; i++) {
+  //     columns.forEach(c => {
+  //         if (c.length > i) {
+  //             ap_markup += `<div class="phases ap_button" ap_id='${c[i].id}' camp_id='${campaign.id}' onclick="">${c[i].name}</div>`;
+  //             writeAPModal(c[i], report, playbook);
+  //         } else {
+  //             ap_markup += '<div class="phasesblank"></div>';
+  //         }
+  //     });
+  // }
+  // phase_container.append(ap_markup);
 }
 
 let intersection = function () {
