@@ -5,6 +5,14 @@ const indicatorsElement = document.querySelector("#indicators");
 const attacksElement = document.querySelector("#attacks");
 const timeLineElement = document.querySelector("#timeline");
 
+const reconElement = document.querySelector('#recon');
+const weapElement = document.querySelector('#weaponization');
+const deliveryElement = document.querySelector('#delivery');
+const exploidElement = document.querySelector('#exploit');
+const installElement = document.querySelector('#install');
+const commandElement = document.querySelector('#command');
+const objectiveElement = document.querySelector('#objective');
+
 const findById = (data, id) => {
   const report = data.find(o => o.id === id);
   return report
@@ -124,22 +132,61 @@ function buildPhaseContainer(report, playbook) {
   let table_length = Math.max(
       recon.length, weap.length, delivery.length, exploit.length, install.length, command.length, objective.length
   );
-  const columns = [recon, weap, delivery, exploit, install, command, objective];
-  console.log(columns);
-  // let phase_container = $('.phasescontainer');
-  // phase_container.empty();
-  // let ap_markup = '';
-  // for (let i = 0; i < table_length; i++) {
-  //     columns.forEach(c => {
-  //         if (c.length > i) {
-  //             ap_markup += `<div class="phases ap_button" ap_id='${c[i].id}' camp_id='${campaign.id}' onclick="">${c[i].name}</div>`;
-  //             writeAPModal(c[i], report, playbook);
-  //         } else {
-  //             ap_markup += '<div class="phasesblank"></div>';
-  //         }
-  //     });
-  // }
-  // phase_container.append(ap_markup);
+  
+  const dataTest = {
+    recon: recon,
+    weap: weap,
+    delivery: delivery,
+    exploit: exploit,
+    install: install,
+    command: command,
+    objective: objective
+  }
+
+  Object.entries(dataTest).forEach(entry => {
+    let key = entry[0];
+    let value = entry[1];
+    let element;
+
+    // The key determines which element to use
+    switch(key) {
+      case 'recon':
+        element = reconElement;
+        break
+      case 'weap':
+        element = weapElement;
+        break
+      case 'delivery':
+        element = deliveryElement;
+        break
+      case 'exploit':
+        element = exploidElement;
+        break
+      case 'install':
+        element = installElement;
+        break
+      case 'command':
+        element = commandElement;
+        break
+      case 'objective':
+        element = objectiveElement;
+        break
+    }
+
+    // Clear older HTML content
+    element.innerHTML = '';
+
+    // Iterate and build and insert HTML
+    if (value.length !== 0) {
+      value.forEach(object => {
+        const div = document.createElement('div');
+        div.setAttribute("id", `${object.id}`)
+        div.className = 'dynamic-info'
+        div.innerHTML = object.name
+        element.appendChild(div);
+      })
+    }
+  });
 }
 
 let intersection = function () {
