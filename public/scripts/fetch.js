@@ -1,6 +1,8 @@
 
 const playbooks = document.getElementsByClassName('playbooks');
 
+let currentPlaybook;
+
 document.addEventListener('click', (event) => {
   const clickedPlaybook = event.originalTarget.id
   fetchPlaybook(clickedPlaybook);
@@ -19,5 +21,7 @@ const fetchPlaybook = async (playbook) => {
   playbookCampaigns(requestedPlaybook)
   playbookIndicator(requestedPlaybook)
   playbookAttacks(requestedPlaybook)
-  campaignDuration(requestedPlaybook)
+  addReportLinks(requestedPlaybook);
+
+  currentPlaybook = requestedPlaybook;
 }
