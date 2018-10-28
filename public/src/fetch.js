@@ -1,27 +1,27 @@
-
-const playbooks = document.getElementsByClassName('playbooks');
-
 let currentPlaybook;
 let currentReports;
-document.addEventListener('click', (event) => {
-  const clickedPlaybook = event.originalTarget.id
-  fetchPlaybook(clickedPlaybook);
-})
 
-const fetchPlaybook = async (playbook) => {
-  let response = await fetch(`${window.location}api/playbook/campaign/${playbook}`);
+class FetchData {
 
-  let data = await response.json();
+  static async fetchPlaybook(playbook) {
+    let response = await fetch(`${window.location}api/playbook/campaign/${playbook}`);
 
-  let requestedPlaybook = data[0].objects
+    let data = await response.json();
+  
+    let requestedPlaybook = data[0].objects
 
-  // Render all playbook static info
-  playbookDescription(requestedPlaybook)
-  playbookIntrusion(playbook)
-  playbookCampaigns(requestedPlaybook)
-  playbookIndicator(requestedPlaybook)
-  playbookAttacks(requestedPlaybook)
-  addReportLinks(requestedPlaybook);
+    //   // Render all playbook static info
+//   // playbookDescription(requestedPlaybook)
+//   // playbookIntrusion(playbook)
+//   // playbookCampaigns(requestedPlaybook)
+//   // playbookIndicator(requestedPlaybook)
+//   // playbookAttacks(requestedPlaybook)
+//   // addReportLinks(requestedPlaybook);
 
-  currentPlaybook = requestedPlaybook;
+//   // currentPlaybook = requestedPlaybook;
+
+    console.log(requestedPlaybook);
+  }
 }
+
+export { FetchData as default };

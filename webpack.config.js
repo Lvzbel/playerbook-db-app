@@ -1,8 +1,24 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './public/src/index.js',
+  entry: "./public/src/index.js",
   output: {
-    path: path.resolve(__dirname, 'public/scripts')
-  }
-}
+    path: path.resolve(__dirname, "public/scripts"),
+    filename: "bundle.js"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        }
+      }
+    ]
+  },
+  devtool: 'source-map'
+};
