@@ -1,3 +1,4 @@
+require('./mystyles.scss');
 import "@babel/polyfill";
 import { FetchData } from './fetch'
 
