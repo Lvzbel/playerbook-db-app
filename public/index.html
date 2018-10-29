@@ -33,12 +33,12 @@
       </ul>
     </div>
 
-    <div class="playbook-info">
+    <div class="playbook-info-container">
       <div class="campaign-info">
         <div class="campaign-info__description">
-          <p id="description-text"></p>
+          <p class="campaign-info__text"></p>
         </div>
-        <div class="campaign-timeline">
+        <div class="campaign-info__timeline">
           <ul id="timeline">
 
           </ul>
@@ -46,51 +46,51 @@
       </div>
 
       <div class="campaign-score-board">
-        <div class="score-board">intrusion Set: <span id="intrusion"></span></div>
-        <div class="score-board">Campaign: <span id="campaign"></span></div>
-        <div class="score-board">Indicator: <span id="indicators"></span></div>
-        <div class="score-board">Attack Patterns: <span id="attacks"></span></div>
+        <div class="campaign-score-board__result">intrusion Set: <span id="intrusion"></span></div>
+        <div class="campaign-score-board__result">Campaign: <span id="campaign"></span></div>
+        <div class="campaign-score-board__result">Indicator: <span id="indicators"></span></div>
+        <div class="campaign-score-board__result">Attack Patterns: <span id="attacks"></span></div>
       </div>
 
       <div class="campaign-dynamic-info">
-        <div class="title-bar">
+        <div class="campaign-dynamic-info__title-bar">
           <div class="title-bar-sections">
             <span>RECON</span>
             <div id="recon">
 
             </div>
           </div>
-          <div class="title-bar-sections">
+          <div class="campaign-dynamic-info__title-bar__sections">
             <span>WEAPONIZATION</span>
             <div id="weaponization">
 
             </div>
           </div>
-          <div class="title-bar-sections">
+          <div class="campaign-dynamic-info__title-bar__sections">
             <span>DELIVERY</span>
             <div id="delivery">
 
             </div>
           </div>
-          <div class="title-bar-sections">
+          <div class="campaign-dynamic-info__title-bar__sections">
             <span>EXPLOIT</span>
             <div id="exploit">
 
             </div>
           </div>
-          <div class="title-bar-sections">
+          <div class="campaign-dynamic-info__title-bar__sections">
             <span>INSTALL</span>
             <div id="install">
 
             </div>
           </div>
-          <div class="title-bar-sections">
+          <div class="campaign-dynamic-info__title-bar__sections">
             <span>COMMAND</span>
             <div id="command">
 
             </div>
           </div>
-          <div class="title-bar-sections">
+          <div class="campaign-dynamic-info__title-bar__sections">
             <span>OBJECTIVE</span>
             <div id="objective">
 
@@ -99,6 +99,7 @@
         </div>
       </div>
     </div>
+
   </main>
 
   <script src="/scripts/bundle.js"></script>

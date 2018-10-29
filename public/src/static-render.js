@@ -2,7 +2,7 @@ import { findById, getTypeFromReport } from './utilities';
 import { buildPhaseContainer } from './dynamic-render';
 import { currentPlaybook } from './fetch';
 
-const descriptionElement = document.querySelector("#description-text");
+const descriptionElement = document.querySelector(".campaign-info__text");
 const intrusionElement = document.querySelector("#intrusion");
 const campaignsElement = document.querySelector("#campaign");
 const indicatorsElement = document.querySelector("#indicators");

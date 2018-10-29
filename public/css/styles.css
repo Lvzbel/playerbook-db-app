@@ -53,17 +53,12 @@ body {
   background-color: var(--secondary-bg-color);
 }
 
-.playbook-info {
+.playbook-info-container {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   
   width: 85%;
-}
-
-.campain-score-board {
-  width: 100%;
-  display: flex;
 }
 
 .campaign-info {
@@ -78,17 +73,16 @@ body {
   height: 40rem;
 }
 
-#description-text {
-  color: white;
-}
-
-.campaign-timeline {
+.campaign-info__timeline {
   align-items: flex-start;
   width: 30%;
   height: 40rem;
 }
 
 .campaign-score-board {
+  width: 100%;
+  display: flex;
+
   background-color: var(--main-color);
   height: 4rem;
   width: 100%;align-items: flex-start;
@@ -102,13 +96,13 @@ body {
   width: 100%;
 }
 
-.title-bar {
+.campaign-dynamic-info__title-bar {
   display: flex;
   justify-content: space-between;
   margin-top: .3rem;
 }
 
-.title-bar-sections {
+.campaign-dynamic-info__title-bar__sections {
   height: 3rem;
   width: 14%;
   /* background-color: var(--main-color); */
@@ -118,7 +112,7 @@ body {
 }
 
 /* Description Paragraph Styles */
-#description-text {
+.campaign-info__text {
   border: .2rem solid var(--main-color);
   height: 100%;
   width: 100%;
@@ -126,6 +120,7 @@ body {
   text-align: left;
   overflow-y: auto;
   font-size: 1.5rem;
+  color: white;
 }
 
 /* Playbooks List Styles*/
