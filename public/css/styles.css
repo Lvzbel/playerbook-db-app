@@ -28,7 +28,7 @@ body {
   box-sizing: border-box;
 }
 
-header {
+.header {
   display: flex;
   background-color: var(--secondary-bg-color);
   height: 6rem;
@@ -37,23 +37,23 @@ header {
   align-items: center;
 }
 
-#logo {
+.header__logo {
   height: 5rem;
   width: auto;
   margin: 2.5rem;
 }
 
-main {
+.main-content {
   display: flex;
 }
 
-.playbooks-sidebar {
+.main-content__sidebar {
   width: 15%;
   height: 100vh;
   background-color: var(--secondary-bg-color);
 }
 
-.main-info {
+.playbook-info {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -72,7 +72,7 @@ main {
   display: flex;
 }
 
-.campaign-description {
+.campaign-info__description {
   background-color: var(--main-bg-light);
   width: 70%;
   height: 40rem;
