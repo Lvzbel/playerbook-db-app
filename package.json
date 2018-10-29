@@ -4,13 +4,27 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongoose": "^5.3.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "build": "webpack --mode production",
+    "dev-webpack": "webpack --mode development --watch",
+    "dev-server": "webpack-dev-server"
   },
   "author": "Rodrigo O. Coto",
   "license": "ISC"
