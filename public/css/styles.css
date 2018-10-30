@@ -179,3 +179,12 @@ body {
   background-color: var(--main-color);
   color: var(--secondary-bg-color);
 }
+
+.box {
+  width: 60rem;
+  height: 30rem;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  background-color: var(--main-bg-color);
+  color: #ccc;
+}
