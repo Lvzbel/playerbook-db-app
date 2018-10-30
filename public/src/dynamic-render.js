@@ -98,11 +98,11 @@ const buildPhaseContainer = (report, playbook) => {
         
         div.setAttribute("id", `${object.id}`);
         div.className = "dynamic-info";
+        viewBox.classList.add('modal-trigger')
+        viewBox.setAttribute("id", `modal-box-${object.id}`)
         viewBox.innerHTML = object.name;
         div.appendChild(viewBox)
-        // div.addEventListener('click', (event) => {
-        //   console.log('Hello');
-        // })
+
         div.insertAdjacentHTML('beforeend', modalMarkup);
         
 
@@ -110,11 +110,10 @@ const buildPhaseContainer = (report, playbook) => {
           console.log('Event Fire!')
           const modal = document.querySelector(`#modal-${object.id}`)
           const closeBtn = document.querySelector(`#button-${object.id}`)
-          const clickTarget = event.target.className
-
-          modal.classList.toggle("is-active")
+          const clickTargetClass = event.target.className
+          const clickTargetId = event.target.id
      
-          if(clickTarget == 'test-modal' || clickTarget ==  'modal-background') {
+          if(clickTargetId === `modal-box-${object.id}` || clickTargetClass === 'modal-background') {
             modal.classList.toggle("is-active")
           }
 
@@ -127,10 +126,5 @@ const buildPhaseContainer = (report, playbook) => {
     }
   });
 };
-
-// Things to show
-// technique = object.name
-// reference = object.external_references.url
-// description = object.description
 
 export { buildPhaseContainer };
